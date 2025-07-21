@@ -48,6 +48,7 @@ passport.deserializeUser((user, done) => {
 });
 
 const GitHubStrategy = require('passport-github2').Strategy;
+const fetch = require('node-fetch'); // Add this import if not present
 
 passport.use(
   new GitHubStrategy(
@@ -55,14 +56,28 @@ passport.use(
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
       callbackURL: '/auth/github/callback',
+      scope: ['user:email'],
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
-        const email = profile.emails?.[0]?.value;
+        let email = profile.emails?.[0]?.value;
+        if (!email) {
+          // Fetch emails from GitHub API
+          const response = await fetch('https://api.github.com/user/emails', {
+            headers: {
+              Authorization: `token ${accessToken}`,
+              'User-Agent': 'CodeWeave',
+              Accept: 'application/vnd.github.v3+json',
+            },
+          });
+          const emails = await response.json();
+          // Find the primary, verified email
+          const primaryEmail = Array.isArray(emails) && emails.find(e => e.primary && e.verified);
+          email = primaryEmail?.email;
+        }
         if (!email) {
           return done(new Error('GitHub email not available'), null);
         }
-
         // Check if user already exists
         let user = await User.findOne({ email });
 
