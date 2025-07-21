@@ -31,7 +31,7 @@ export default function Dashboard() {
     }
 
     try {
-      const res = await fetch('http://localhost:5000/api/room/create', {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/room/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ export default function Dashboard() {
     }
     setJoinLoading(true);
     try {
-      const res = await fetch(`http://localhost:5000/api/room/join-by-code/${joinCode.trim()}`);
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/room/join-by-code/${joinCode.trim()}`);
       const data = await res.json();
       if (!res.ok) {
         throw new Error(data.error || 'Invalid or expired join code');

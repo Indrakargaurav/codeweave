@@ -21,7 +21,7 @@ export default function Login() {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const res = await fetch('http://localhost:5000/auth/login', {
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -49,7 +49,7 @@ export default function Login() {
   };
 
   const handleOAuthLogin = (provider) => {
-    window.location.href = `http://localhost:5000/auth/${provider}`;
+    window.location.href = `${process.env.REACT_APP_API_BASE_URL}/auth/${provider}`;
   };
 
   return (

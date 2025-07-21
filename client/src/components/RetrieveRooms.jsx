@@ -49,7 +49,7 @@ export default function RetrieveRooms({ onClose }) {
     try {
       console.log('📥 Fetching user rooms...');
       setLoading(true);
-      const response = await fetch(`http://localhost:5000/api/room/user/${user.ownerId}`);
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/room/user/${user.ownerId}`);
 
       if (!response.ok) {
         throw new Error('Failed to fetch rooms');
@@ -85,7 +85,7 @@ export default function RetrieveRooms({ onClose }) {
   const handleExportRoom = async (roomId, roomName) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/room/${roomId}/export?ownerId=${user.ownerId}`
+        `${process.env.REACT_APP_API_BASE_URL}/api/room/${roomId}/export?ownerId=${user.ownerId}`
       );
 
       if (!response.ok) {
@@ -120,7 +120,7 @@ export default function RetrieveRooms({ onClose }) {
       return;
     try {
       const response = await fetch(
-        `http://localhost:5000/api/room/${roomId}?ownerId=${user.ownerId}`,
+        `${process.env.REACT_APP_API_BASE_URL}/api/room/${roomId}?ownerId=${user.ownerId}`,
         {
           method: 'DELETE',
         }
