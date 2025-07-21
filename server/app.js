@@ -12,7 +12,13 @@ const executeRoutes = require('./routes/execute');
 
 const app = express();
 
-app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://codeweave-jet.vercel.app'
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 app.use(
