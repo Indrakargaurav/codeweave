@@ -12,7 +12,9 @@ const {
 const { createFolderZip } = require('../utils/folderExport');
 const crypto = require('crypto');
 const redis = require('redis');
-const redisClient = redis.createClient();
+const redisClient = redis.createClient({
+  url: process.env.REDIS_URL || 'redis://localhost:6379'
+});
 redisClient.connect().catch(console.error);
 // const JSZip = require('jszip'); // Uncomment after installing: npm install jszip
 
