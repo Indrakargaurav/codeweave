@@ -1,0 +1,320 @@
+/* VS Code Explorer Styles */
+.vscode-explorer {
+  position: relative;
+  user-select: none;
+}
+
+.vscode-explorer .resize-handle {
+  background: transparent;
+  transition: background-color 0.2s ease;
+  border-left: 1px solid transparent;
+}
+
+.vscode-explorer .resize-handle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 2px solid #007acc;
+}
+
+.vscode-explorer .resize-handle:active {
+  background: rgba(255, 255, 255, 0.2);
+  border-left: 3px solid #007acc;
+}
+
+/* Make resize handle more visible */
+.vscode-explorer:hover .resize-handle {
+  border-left: 1px solid #3c3c3c;
+}
+
+/* Ensure the explorer panel can be resized */
+.vscode-explorer {
+  resize: horizontal;
+  overflow: hidden;
+}
+
+/* Add a visual indicator for the resize area */
+.vscode-explorer::after {
+  content: '';
+  position: absolute;
+  right: -2px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: transparent;
+  cursor: col-resize;
+  z-index: 999;
+}
+
+.vscode-tree-item {
+  transition: background-color 0.15s ease;
+}
+
+.vscode-tree-item:hover .vscode-tree-actions {
+  opacity: 1 !important;
+}
+
+.vscode-tree-item.selected {
+  background-color: #094771 !important;
+  color: #ffffff !important;
+}
+
+.vscode-tree-item.selected:hover {
+  background-color: #094771 !important;
+}
+
+.vscode-icon-button {
+  transition: background-color 0.15s ease;
+}
+
+.vscode-action-btn {
+  transition: background-color 0.15s ease;
+}
+
+/* Scrollbar styling */
+.vscode-explorer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.vscode-explorer::-webkit-scrollbar-track {
+  background: #252526;
+}
+
+.vscode-explorer::-webkit-scrollbar-thumb {
+  background: #424242;
+  border-radius: 4px;
+}
+
+.vscode-explorer::-webkit-scrollbar-thumb:hover {
+  background: #4f4f4f;
+}
+
+/* File tree animations */
+.vscode-tree-item {
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Folder expand/collapse animation */
+.vscode-tree-item .folder-children {
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+/* Selection indicator */
+.vscode-tree-item.selected::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #007acc;
+}
+
+/* Hover effects */
+.vscode-tree-item:hover {
+  background-color: #2a2d2e;
+}
+
+/* File type specific colors - Each type has unique color */
+.vscode-tree-item .file-icon[data-type='js'],
+.vscode-tree-item .file-icon[data-type='jsx'] {
+  color: #f7df1e; /* JavaScript Yellow */
+}
+
+.vscode-tree-item .file-icon[data-type='ts'],
+.vscode-tree-item .file-icon[data-type='tsx'] {
+  color: #3178c6; /* TypeScript Blue */
+}
+
+.vscode-tree-item .file-icon[data-type='py'] {
+  color: #3776ab; /* Python Blue */
+}
+
+.vscode-tree-item .file-icon[data-type='java'] {
+  color: #ed8b00; /* Java Orange */
+}
+
+.vscode-tree-item .file-icon[data-type='cpp'],
+.vscode-tree-item .file-icon[data-type='c'],
+.vscode-tree-item .file-icon[data-type='h'],
+.vscode-tree-item .file-icon[data-type='hpp'] {
+  color: #f34b7d; /* C/C++ Red */
+}
+
+.vscode-tree-item .file-icon[data-type='html'],
+.vscode-tree-item .file-icon[data-type='htm'] {
+  color: #e34f26; /* HTML Orange */
+}
+
+.vscode-tree-item .file-icon[data-type='css'],
+.vscode-tree-item .file-icon[data-type='scss'],
+.vscode-tree-item .file-icon[data-type='sass'] {
+  color: #1572b6; /* CSS Blue */
+}
+
+.vscode-tree-item .file-icon[data-type='json'] {
+  color: #f7df1e; /* JSON Yellow */
+}
+
+.vscode-tree-item .file-icon[data-type='xml'] {
+  color: #f39c12; /* XML Orange */
+}
+
+.vscode-tree-item .file-icon[data-type='yml'],
+.vscode-tree-item .file-icon[data-type='yaml'] {
+  color: #cb171e; /* YAML Red */
+}
+
+.vscode-tree-item .file-icon[data-type='md'] {
+  color: #007acc; /* Markdown Blue */
+}
+
+.vscode-tree-item .file-icon[data-type='txt'] {
+  color: #cccccc; /* Text Gray */
+}
+
+.vscode-tree-item .file-icon[data-type='png'],
+.vscode-tree-item .file-icon[data-type='jpg'],
+.vscode-tree-item .file-icon[data-type='jpeg'],
+.vscode-tree-item .file-icon[data-type='gif'],
+.vscode-tree-item .file-icon[data-type='svg'] {
+  color: #4ec9b0; /* Images Teal */
+}
+
+.vscode-tree-item .file-icon[data-type='zip'],
+.vscode-tree-item .file-icon[data-type='rar'],
+.vscode-tree-item .file-icon[data-type='tar'],
+.vscode-tree-item .file-icon[data-type='gz'] {
+  color: #ff6b6b; /* Archives Red */
+}
+
+.vscode-tree-item .file-icon[data-type='env'] {
+  color: #4ec9b0; /* Environment Teal */
+}
+
+.vscode-tree-item .file-icon[data-type='gitignore'] {
+  color: #f05032; /* Git Red */
+}
+
+.vscode-tree-item .file-icon[data-type='dockerfile'] {
+  color: #2496ed; /* Docker Blue */
+}
+
+/* Additional unique colors for more file types */
+.vscode-tree-item .file-icon[data-type='php'] {
+  color: #777bb4; /* PHP Purple */
+}
+
+.vscode-tree-item .file-icon[data-type='rb'] {
+  color: #cc342d; /* Ruby Red */
+}
+
+.vscode-tree-item .file-icon[data-type='go'] {
+  color: #00add8; /* Go Blue */
+}
+
+.vscode-tree-item .file-icon[data-type='rs'] {
+  color: #dea584; /* Rust Orange */
+}
+
+.vscode-tree-item .file-icon[data-type='kt'] {
+  color: #f18e33; /* Kotlin Orange */
+}
+
+.vscode-tree-item .file-icon[data-type='swift'] {
+  color: #ff3b30; /* Swift Red */
+}
+
+.vscode-tree-item .file-icon[data-type='sql'] {
+  color: #336791; /* SQL Blue */
+}
+
+.vscode-tree-item .file-icon[data-type='sh'] {
+  color: #4eaa25; /* Shell Green */
+}
+
+.vscode-tree-item .file-icon[data-type='ps1'] {
+  color: #012456; /* PowerShell Blue */
+}
+
+.vscode-tree-item .file-icon[data-type='bat'] {
+  color: #c1f12e; /* Batch Green */
+}
+
+/* Context menu styling */
+.vscode-context-menu {
+  position: absolute;
+  background: #252526;
+  border: 1px solid #3c3c3c;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  min-width: 150px;
+  padding: 4px 0;
+}
+
+.vscode-context-menu-item {
+  padding: 6px 12px;
+  cursor: pointer;
+  color: #cccccc;
+  font-size: 13px;
+  transition: background-color 0.15s ease;
+}
+
+.vscode-context-menu-item:hover {
+  background-color: #094771;
+  color: #ffffff;
+}
+
+/* Tooltip styling */
+.vscode-tooltip {
+  position: absolute;
+  background: #252526;
+  color: #cccccc;
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid #3c3c3c;
+  pointer-events: none;
+}
+
+/* Loading states */
+.vscode-tree-item.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.vscode-tree-item.loading::after {
+  content: '';
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border: 1px solid #3c3c3c;
+  border-top: 1px solid #007acc;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}

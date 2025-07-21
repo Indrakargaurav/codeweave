@@ -1,0 +1,134 @@
+/* Home page specific styles */
+
+.home-background {
+  /* background-image: url('/images/laptop.jpg'); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.home-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55); /* Stronger overlay for readability */
+  z-index: 0;
+}
+
+.home-content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  text-align: center;
+  padding: 3rem 2rem;
+  border-radius: 18px;
+  background: rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.home-welcome {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #00bcd4;
+  margin-bottom: 0.2rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+.home-title {
+  font-size: 2.7rem;
+  font-weight: 900;
+  margin-bottom: 0.7rem;
+  letter-spacing: 3px;
+  color: #fff;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+}
+
+.home-tagline {
+  font-size: 1.25rem;
+  color: #e0e0e0;
+  margin-bottom: 0.7rem;
+  font-weight: 500;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+.home-description {
+  font-size: 1.08rem;
+  color: #b0eaff;
+  margin-bottom: 1.7rem;
+  font-weight: 400;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+.home-buttons {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  margin-top: 1.2rem;
+}
+
+.home-cta {
+  display: inline-block;
+  padding: 0.9rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, #a83232, #d72660);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(168, 50, 50, 0.15);
+  transition:
+    background 0.2s,
+    transform 0.2s;
+  text-decoration: none;
+}
+
+.home-cta:hover {
+  background: linear-gradient(90deg, #d72660, #a83232);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.home-logo {
+  font-size: 2.1rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  margin-bottom: 1.2rem;
+  color: #fff;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+}
+
+.home-features {
+  text-align: left;
+  margin: 2rem 0 2.5rem 0;
+  padding-left: 1.2rem;
+  color: #e0e0e0;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  list-style: disc inside;
+}
+
+.home-features li {
+  margin-bottom: 0.7rem;
+}
+
+.desc-highlight {
+  color: #00bcd4;
+  font-weight: 600;
+  display: block;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
