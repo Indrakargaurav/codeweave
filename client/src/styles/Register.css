@@ -1,5 +1,5 @@
 .auth-container {
-  background-image: url('C:/Users/gaurav/OneDrive/Documents/cursor_editing_real_time/client/public/images/bg.jpg');
+  background-image: url('/images/bg.jpg');
   background-size: cover;
   background-position: center;
   min-height: 100vh;
